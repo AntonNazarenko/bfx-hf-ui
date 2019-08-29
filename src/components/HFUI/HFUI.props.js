@@ -1,14 +1,7 @@
 import PropTypes from 'prop-types'
 
 export const propTypes = {
-  loadInitialSettings: PropTypes.func,
-  loadAPIKey: PropTypes.func,
-  cycleBFXConnection: PropTypes.func,
+  loginWithAuthToken: PropTypes.func.isRequired,
 }
 
-export const defaultProps = {
-  loadInitialSettings: () => {},
-  strategies: () => {},
-  cycleBFXConnection: () => {},
-  loadAPIKey: () => {},
-}
+export const defaultProps = {}
