@@ -1,5 +1,7 @@
-import WSTypes from '../constants/ws-hf-server'
 import  { NotificationManager } from 'react-notifications'
+
+import WSTypes from '../constants/ws-hf-server'
+
 const initialState = () => ({
   status: 'offline',
   lastActivity: null,

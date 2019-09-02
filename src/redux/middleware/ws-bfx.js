@@ -1,10 +1,11 @@
+/* eslint-disable consistent-return */
 import _isArray from 'lodash/isArray'
 import _isString from 'lodash/isString'
 
 import types from '../constants/ws-bfx'
 import actions from '../actions/ws-bfx'
 
-const socketMiddleware = function () {
+function socketMiddleware() {
   let socket = null
 
   const onOpen = (ws, store) => (e) => {
