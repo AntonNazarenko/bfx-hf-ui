@@ -2,7 +2,7 @@
 
 const MonacoWebpack = require('monaco-editor-webpack-plugin')
 
-module.exports = function override(config, env) {
+module.exports = function override(config) {
   config.plugins.push(new MonacoWebpack({
     languages: ['javascript'],
   }))
