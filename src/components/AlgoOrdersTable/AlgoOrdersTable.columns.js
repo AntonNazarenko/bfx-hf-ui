@@ -44,7 +44,7 @@ export default (exID, cancelOrder) => [{
       <i
         role='button'
         tabIndex={0}
-        className='far fa-times-circle'
+        className='icon-cancel'
         onClick={() => cancelOrder(exID, rowData)}
       />
     </div>
