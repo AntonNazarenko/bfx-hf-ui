@@ -15,7 +15,6 @@ export default class OBSide extends React.PureComponent {
     const amountSum = _sum(levels.map(pl => Math.abs(pl[1])))
     const maxVol = _max(levels.map(pl => Math.abs(pl[1])))
     let cumAmountSum = 0
-
     return (
       <ul className='hfui-orderbook__side'>
         {levels.map((pl, i) => {
