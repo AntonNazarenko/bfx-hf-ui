@@ -22,9 +22,30 @@ export default class Select extends React.PureComponent {
   static defaultProps = defaultProps
   render() {
     const {
-      onChange, value, options, className, disabled, isDisabled, label, onFavoriteSelect, favoritePairs,
+      onChange, value, options, className, disabled, isDisabled, label, onFavoriteSelect, favoritePairs, renderWithoutFavorites,
       ...otherProps
     } = this.props
+    if (renderWithoutFavorites) {
+      return (
+        <div className='hfui-select__outer'>
+          {label && (
+            <p>
+              {label}
+            </p>
+          )}
+          <RSelect
+            className={ClassNames('hfui-select', className)}
+            isDisabled={disabled || isDisabled}
+            classNamePrefix='hfui-select'
+            onChange={onChange}
+            maxMenuHeight={200}
+            value={value}
+            options={options}
+            {...otherProps}
+          />
+        </div>
+      )
+    }
     const sortedOptions = options.sort((a, b) => favoritePairs.includes(b.value) - favoritePairs.includes(a.value))
     return (
       <div className='hfui-select__outer'>
