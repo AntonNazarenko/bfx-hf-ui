@@ -16,11 +16,21 @@ export default class ExchangeInfoBar extends React.PureComponent {
     addTickerRequirement(activeExchange, activeMarket)
   }
 
+  favoriteSelect(pair, isAddition) {
+    const { savePairs, authToken, favoritePairs = [] } = this.props
+    if (isAddition) {
+      savePairs([...favoritePairs, pair], authToken)
+    } else {
+      const filtredPairs = favoritePairs.filter(p => p !== pair)
+      savePairs(filtredPairs, authToken)
+    }
+  }
+
   render() {
     const {
       onChangeMarket, activeMarket, ticker, activeExchange,
       markets, openNotifications, showTicker, showNotifications,
-      showAddComponent, onAddComponent, showSave, onSave,
+      showAddComponent, onAddComponent, showSave, onSave, favoritePairs,
     } = this.props
 
     const {
@@ -38,6 +48,8 @@ export default class ExchangeInfoBar extends React.PureComponent {
               <MarketSelect
                 markets={marketsForActiveExchange}
                 value={activeMarket}
+                onFavoriteSelect={(a, b) => this.favoriteSelect(a, b)}
+                favoritePairs={favoritePairs}
                 onChange={(market) => {
                   onChangeMarket(activeExchange, market, activeMarket)
                 }}

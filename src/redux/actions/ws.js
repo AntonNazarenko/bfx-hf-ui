@@ -269,6 +269,11 @@ export default {
     payload: opts,
   }),
 
+  recvUpdatedFavoritePairs: pairs => ({
+    type: t.UPDATE_FAVORITE_PAIRS,
+    payload: pairs,
+  }),
+
   purgeDataCandles: (exID, channel) => ({
     type: t.PURGE_DATA_CANDLES,
     payload: { exID, channel },
